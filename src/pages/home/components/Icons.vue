@@ -1,66 +1,92 @@
 <template>
 	<div class="icons">
-		<div class="icon">
-			<div class="icon-img">
-				<img class="icon-img-content" src="//s.qunarzz.com/homenode/images/touchheader/group.png" />
-			</div>
-			<p class="icon-desc">热门景点</p>
-		</div>
-		<div class="icon">
-			<div class="icon-img">
-				<img class="icon-img-content" src="//s.qunarzz.com/homenode/images/touchheader/group.png" />
-			</div>
-			<p class="icon-desc">热门景点</p>
-		</div>
-		<div class="icon">
-			<div class="icon-img">
-				<img class="icon-img-content" src="//s.qunarzz.com/homenode/images/touchheader/group.png" />
-			</div>
-			<p class="icon-desc">热门景点</p>
-		</div>
-		<div class="icon">
-			<div class="icon-img">
-				<img class="icon-img-content" src="//s.qunarzz.com/homenode/images/touchheader/group.png" />
-			</div>
-			<p class="icon-desc">热门景点</p>
-		</div>
-		<div class="icon">
-			<div class="icon-img">
-				<img class="icon-img-content" src="//s.qunarzz.com/homenode/images/touchheader/group.png" />
-			</div>
-			<p class="icon-desc">热门景点</p>
-		</div>
-		<div class="icon">
-			<div class="icon-img">
-				<img class="icon-img-content" src="//s.qunarzz.com/homenode/images/touchheader/group.png" />
-			</div>
-			<p class="icon-desc">热门景点</p>
-		</div>
-		<div class="icon">
-			<div class="icon-img">
-				<img class="icon-img-content" src="//s.qunarzz.com/homenode/images/touchheader/group.png" />
-			</div>
-			<p class="icon-desc">热门景点</p>
-		</div>
-		<div class="icon">
-			<div class="icon-img">
-				<img class="icon-img-content" src="//s.qunarzz.com/homenode/images/touchheader/group.png" />
-			</div>
-			<p class="icon-desc">热门景点</p>
-		</div>
+		<swiper>
+			<swiper-slide v-for="(page,index) of pages">
+				<div class="icon" 
+				v-for="item of page"
+				:key="item.id">
+					<div class="icon-img">
+						<img class="icon-img-content" :src="item.imgUrl" />
+					</div>
+					<p class="icon-desc">{{item.desc}}</p>
+				</div>
+			</swiper-slide>
+		</swiper>
 	</div>
 </template>
 
 <script>
 export default {
-	name: 'HomeIcons'
+	name: 'HomeIcons',
+	data () {
+		return {
+			iconList: [{
+				id: '0001',
+				imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
+				desc: '景点门票'
+			},
+			{
+				id: '0002',
+				imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
+				desc: '景点门票'
+			},
+			{
+				id: '0003',
+				imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
+				desc: '景点门票'
+			},
+			{
+				id: '0004',
+				imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
+				desc: '景点门票'
+			},
+			{
+				id: '0005',
+				imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
+				desc: '景点门票'
+			},
+			{
+				id: '0006',
+				imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
+				desc: '景点门票'
+			},
+			{
+				id: '0007',
+				imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
+				desc: '景点门票'
+			},
+			{
+				id: '0008',
+				imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
+				desc: '景点门票'
+			},
+			{
+				id: '0009',
+				imgUrl: 'https://imgs.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
+				desc: '景点门票'
+			}]
+		}
+	},
+	computed: {
+		pages () {
+			const pages = []
+			this.iconList.forEach((item,index) =>{
+				const page = Math.floor(index/8)
+				if (!pages[page]) {
+					pages[page] = []
+				}
+				pages[page].push(item)
+			})
+			return pages
+		}
+	}
 }
 </script>
 
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
-.icons
-	overflow: hidden
+@import '~styles/mixins.styl'
+.icons >>> .swiper-container
 	height: 0
 	padding-bottom: 50%
 	.icon
@@ -91,4 +117,5 @@ export default {
 			line-height: .44rem
 			text-align: center
 			color: $darkTextColor
+			ellipsis()
 </style>
