@@ -2,7 +2,7 @@
 	<div>
 		<div class="title">周末去哪儿</div>
 		<ul>
-			<li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+			<li class="item border-bottom" v-for="item of list" :key="item.id">
 				<div class="item-img-wrapper">
 					<img class="item-img" :src="item.imgUrl" />
 				</div>	
@@ -18,20 +18,12 @@
 <script>
 export default {
 	name:'HomeWeekend',
+	props: {
+		list: Array
+	},
 	data () {
 		return {
-			recommendList: [{
-				id: '0001',
-				imgUrl: 'https://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/2cb12a625b4f5cb4d6d9a1f4cd307d65.jpg',
-				title: '北京野生动物园',
-				desc: '敢与森林之王近距离接触吗？'
-			},
-			{
-				id: '0002',
-				imgUrl: 'https://tr-osdcp.qunarzz.com/tr-osd-tr-manager/img/2cb12a625b4f5cb4d6d9a1f4cd307d65.jpg',
-				title: '北京野生动物园',
-				desc: '敢与森林之王近距离接触吗？'
-			}]
+			
 		}
 	}
 }
@@ -43,7 +35,7 @@ export default {
 	line-height: .8rem
 	background: #eee
 	text-indent: .2rem
-.ietm-img-wrapper
+.item-img-wrapper
 	overflow:hidden
 	height: 0
 	padding-bottom: 37.09%

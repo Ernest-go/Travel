@@ -2,7 +2,7 @@
 	<div>
 		<div class="title">热销推荐</div>
 		<ul>
-			<li class="item border-bottom" v-for="item of recommendList" :key="item.id">
+			<li class="item border-bottom" v-for="item of list" :key="item.id">
 					<img class="item-img" :src="item.imgUrl" />
 				<div class="item-info">
 					<p class="item-title">{{item.title}}</p>
@@ -17,38 +17,12 @@
 <script>
 export default {
 	name:'HomeRecommend',
+	props: {
+		list: Array
+	},
 	data () {
 		return {
-			recommendList: [{
-				id: '0001',
-				imgUrl: 'https://imgs.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_250x250_6ec2f798.jpg',
-				title: '北京野生动物园',
-				desc: '敢与森林之王近距离接触吗？'
-			},
-			{
-				id: '0002',
-				imgUrl: 'https://imgs.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_250x250_6ec2f798.jpg',
-				title: '北京野生动物园',
-				desc: '敢与森林之王近距离接触吗？'
-			},
-			{
-				id: '0003',
-				imgUrl: 'https://imgs.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_250x250_6ec2f798.jpg',
-				title: '北京野生动物园',
-				desc: '敢与森林之王近距离接触吗？'
-			},
-			{
-				id: '0004',
-				imgUrl: 'https://imgs.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_250x250_6ec2f798.jpg',
-				title: '北京野生动物园',
-				desc: '敢与森林之王近距离接触吗？'
-			},
-			{
-				id: '0005',
-				imgUrl: 'https://imgs.qunarzz.com/sight/p0/201405/12/51b63883c25f5d87af3c08bb016e2bd7.jpg_250x250_6ec2f798.jpg',
-				title: '北京野生动物园',
-				desc: '敢与森林之王近距离接触吗？'
-			},]
+			
 		}
 	}
 }
