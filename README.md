@@ -1,6 +1,6 @@
 # travel
 
-> A Vue.js project
+> Vue2.5旅游网
 
 ## Build Setup
 
